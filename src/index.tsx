@@ -50,7 +50,7 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
      */
     public static get observedAttributes(): string[] {
       const defaults = ["content-language", "widget-title", "on-card"];
-      return [...defaults, "message"];
+      return [...defaults, "title", "showtitle", "titlecolor", "countupdate", "boxescolorbg", "boxescolorborder", "boxescolortext"];
     }
 
     /**
@@ -69,11 +69,12 @@ const factory: BlockFactory = (BaseBlockClass, _widgetApi) => {
 const blockDefinition: BlockDefinition = {
     name: "custom-widget-countup",
     factory: factory,
-    attributes: ['message'],
+    attributes: ['title','showtitle','titlecolor','countupdate','boxescolorbg','boxescolortext','boxescolorborder'],
     blockLevel: 'block',
     configurationSchema: configurationSchema,
     uiSchema: uiSchema,
-    label: 'Custom Widget Countup'
+    label: 'Countup',
+    iconUrl: "https://maximizeit.github.io/sb-custom-widget-countup/resources/countup-icon.png",
 };
 
 /**

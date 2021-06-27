@@ -1,16 +1,3 @@
-/*!
- * Copyright 2020, Staffbase GmbH and contributors.
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *     http://www.apache.org/licenses/LICENSE-2.0
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
 import { UiSchema } from "@rjsf/core";
 import { JSONSchema7 } from "json-schema";
 
@@ -19,10 +6,43 @@ import { JSONSchema7 } from "json-schema";
  * see https://react-jsonschema-form.readthedocs.io/en/latest/ for documentation
  */
 export const configurationSchema: JSONSchema7 = {
-  properties: {
-    message: {
+  required: [
+    "title",
+    "countupdate"
+  ],
+  properties: {  
+    title: {
       type: "string",
-      title: "message",
+      title: "Title"
+    },
+    showtitle: {
+      type: "boolean",
+      title: "Show Title"
+    },
+    titlecolor: {
+      type: "string",
+      title: "Title Color",
+      default: "#333333"
+    },
+    countupdate: {
+      type: "string",
+      title: "Countup Date + Time",
+      format: "date-time"
+    },
+    boxescolorbg: {
+      type: "string",
+      title: "Background Color",
+      default: "#FBC91E"
+    },
+    boxescolorborder: {
+      type: "string",
+      title: "Border Color",
+      default: "#FBC91E"
+    },
+    boxescolortext: {
+      type: "string",
+      title: "Text Color",
+      default: "#FFFFFF"
     },
   },
 };
@@ -32,7 +52,32 @@ export const configurationSchema: JSONSchema7 = {
  * @see https://react-jsonschema-form.readthedocs.io/en/latest/api-reference/uiSchema/
  */
 export const uiSchema: UiSchema = {
-  message: {
-    "ui:help": "Please enter a message to show",
+  title: {
+    "ui:autofocus": true,
+    "ui:emptyValue": "",
+    "ui:autocomplete": "off",
+    "ui:help": "Choose a title for the countup."
+  },
+  showtitle: {
+    "ui:help": "Do you want to display the title?"
+  },
+  titlecolor: {
+    "ui:widget": "color",
+    "ui:help": "Choose a color for the title of the countup. Default: #333333"
+  },
+  countupdate: {
+    "ui:help": "Choose a date and time for the countup."
+  },
+  boxescolorbg: {
+    "ui:widget": "color",
+    "ui:help": "Choose a color for the background of the countup boxes. Default: #FBC91E"
+  },
+  boxescolorborder: {
+    "ui:widget": "color",
+    "ui:help": "Choose a color for the border of the countup boxes. Default: #FBC91E"
+  },
+  boxescolortext: {
+    "ui:widget": "color",
+    "ui:help": "Choose a color for the text in the countup boxes. Default: #FFFFFF"
   },
 };
