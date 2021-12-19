@@ -60,7 +60,7 @@ const blockDefinition: BlockDefinition = {
     blockLevel: 'block',
     configurationSchema: configurationSchema,
     uiSchema: uiSchema,
-    label: 'Countup',
+    label: 'DEMO: Countup',
     iconUrl: "https://maximizeit.github.io/sb-custom-widget-countup/resources/countup-icon.png",
 };
 
